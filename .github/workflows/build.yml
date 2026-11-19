@@ -54,6 +54,9 @@ jobs:
             -o Dir::Cache::Archives="$HOME/apt-debs" \
             texlive-latex-base texlive-latex-recommended texlive-latex-extra \
             texlive-fonts-recommended poppler-utils
+          # apt leaves a root-only lock and partial/ that actions/cache cannot read when saving.
+          sudo rm -rf ~/apt-debs/partial ~/apt-debs/lock
+          sudo chown -R "$USER" ~/apt-debs
 
       # pdfLaTeX from TeX Live is the engine Overleaf uses, so line breaks match it exactly.
       # dpkg runs the install scripts, so TeX formats are built as in a normal apt install.
