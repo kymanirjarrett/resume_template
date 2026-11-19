@@ -33,13 +33,32 @@ jobs:
           cache: pip
           cache-dependency-path: pyproject.toml
 
-      # pdfLaTeX from TeX Live is the engine Overleaf uses, so line breaks match it exactly.
-      - name: Install LaTeX and Poppler
+      # Key on the runner image so cached .debs always match the libraries already on it.
+      - name: Read the runner image version
+        id: image
+        run: echo "version=$ImageOS-$ImageVersion" >> "$GITHUB_OUTPUT"
+
+      # Cached .debs keep a slow Ubuntu mirror from stalling the build.
+      - uses: actions/cache@v6
+        id: apt-cache
+        with:
+          path: ~/apt-debs
+          key: apt-${{ steps.image.outputs.version }}-${{ hashFiles('.github/workflows/build.yml') }}
+
+      - name: Download LaTeX and Poppler
+        if: steps.apt-cache.outputs.cache-hit != 'true'
         run: |
+          mkdir -p ~/apt-debs/partial
           sudo apt-get update -qq
-          sudo apt-get install -y -qq --no-install-recommends \
+          sudo apt-get install -y -qq --no-install-recommends --download-only \
+            -o Dir::Cache::Archives="$HOME/apt-debs" \
             texlive-latex-base texlive-latex-recommended texlive-latex-extra \
             texlive-fonts-recommended poppler-utils
+
+      # pdfLaTeX from TeX Live is the engine Overleaf uses, so line breaks match it exactly.
+      # dpkg runs the install scripts, so TeX formats are built as in a normal apt install.
+      - name: Install LaTeX and Poppler
+        run: sudo dpkg -i ~/apt-debs/*.deb
 
       - name: Install the resume tool
         run: pip install -e ".[dev]"
