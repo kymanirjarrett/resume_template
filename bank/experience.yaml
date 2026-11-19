@@ -1,0 +1,36 @@
+- id: halden-freight
+  title: Software Engineer
+  org: Halden Freight
+  location: Columbus, OH
+  dates: {start: "2026-07", end: present}
+  bullets:
+    - id: halden-freight-retry
+      text: Built a retry queue for carrier rate imports in Python and PostgreSQL, cutting manual reprocessing of failed files by **40%**.
+    - id: halden-freight-oncall
+      text: Wrote runbooks for failed carrier imports so on-call engineers could triage alerts without paging the original author.
+      status: off
+      variant_of: halden-freight-retry
+    - id: halden-freight-events
+      text: Replaced a nightly shipment status job with event-driven updates, surfacing delivery delays to customers within minutes.
+- id: meridian-health
+  title: Software Engineering Intern
+  org: Meridian Health Partners
+  location: Cleveland, OH
+  dates: {start: "2025-05", end: "2025-08"}
+  bullets:
+    - id: meridian-health-cache
+      text: Cached read-heavy appointment scheduling endpoints, reducing median response time from **460 ms to 190 ms**.
+    - id: meridian-health-contracts
+      text: Added contract tests between the scheduling API and its React client, catching three breaking changes before they shipped.
+- id: lockfield-analytics
+  title: Software Developer Intern
+  org: Lockfield Analytics
+  location: Cincinnati, OH
+  dates: {start: "2024-05", end: "2024-08"}
+  bullets:
+    - id: lockfield-analytics-preview
+      text: Implemented a CSV import preview so analysts could review row-level changes before they reached client dashboards.
+    - id: lockfield-analytics-a11y
+      text: Added keyboard shortcuts and visible focus states to the report editor, closing 12 open accessibility issues.
+    - id: lockfield-analytics-tests
+      text: Wrote integration tests for empty, oversized, and malformed uploads, catching two parser bugs before release.

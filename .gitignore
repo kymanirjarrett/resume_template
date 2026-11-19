@@ -1,0 +1,29 @@
+# Build output: PDFs live in CI artifacts and optional GitHub Releases
+build/
+*.pdf
+
+# LaTeX intermediates
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+
+# Editors and OS
+.DS_Store
+.vscode/
+.idea/
+
+# Local only: reference inputs and agent settings
+sources/
+.claude/
+CLAUDE.md

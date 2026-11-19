@@ -1,0 +1,7 @@
+- id: campus-it
+  title: IT Help Desk Technician
+  org: Kessler State University IT
+  dates: {start: "2023-01", end: "2024-05"}
+  bullets:
+    - id: campus-it-imaging
+      text: Wrote a laptop imaging checklist that cut new-device setup from 45 minutes to 20.

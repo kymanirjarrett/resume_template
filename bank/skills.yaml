@@ -1,0 +1,32 @@
+- id: languages
+  label: Languages
+  skills:
+    - name: Python
+    - name: SQL
+    - name: TypeScript
+    - name: Go
+    - name: Java
+- id: frameworks
+  label: Frameworks and libraries
+  skills:
+    - name: React
+    - name: FastAPI
+    - name: pandas
+    - name: scikit-learn
+    - name: NumPy
+- id: data
+  label: Data
+  skills:
+    - name: PostgreSQL
+    - name: DuckDB
+    - name: dbt
+- id: tools
+  label: Tools
+  skills:
+    - name: Git
+    - name: Docker
+    - name: GitHub Actions
+    - name: pytest
+    - name: Open Policy Agent
+    - name: JSON Schema
+      status: off

@@ -1,0 +1,14 @@
+name: quant
+label: Quant
+description: Quantitative analysis
+
+education: [kessler-state]
+experience: [halden-freight, meridian-health, lockfield-analytics]
+projects: [queue-simulator, transit-forecast]
+skills:
+  - id: languages
+    skills: [Python, SQL]
+  - id: frameworks
+    skills: [NumPy]
+  - id: data
+    skills: [DuckDB]

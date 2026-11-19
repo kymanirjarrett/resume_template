@@ -1,0 +1,44 @@
+[project]
+name = "resume-builder"
+version = "0.1.0"
+description = "Resume as code: a YAML bullet bank rendered to a one-page LaTeX PDF."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "pydantic>=2.14",
+    "jinja2>=3.1.6",
+    "pyyaml>=6.0.3",
+    "typer>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.1",
+    "ruff>=0.17",
+    "pre-commit>=4.7",
+]
+
+[project.scripts]
+resume = "resume_builder.cli:app"
+
+[build-system]
+requires = ["hatchling>=1.32"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/resume_builder"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["sources"]
+
+[tool.ruff.lint]
+# pycodestyle, pyflakes, isort, bugbear, pyupgrade, simplify
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

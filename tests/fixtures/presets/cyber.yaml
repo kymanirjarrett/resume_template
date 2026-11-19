@@ -1,0 +1,16 @@
+name: cyber
+label: Security
+description: Security engineering
+
+education: [kessler-state]
+experience:
+  - id: halden-freight
+    bullets: [halden-freight-oncall]
+  - meridian-health
+  - lockfield-analytics
+projects: [policy-linter, resume-as-code]
+skills:
+  - id: languages
+    skills: [Go, Python]
+  - id: tools
+    skills: [Git, Open Policy Agent, JSON Schema]

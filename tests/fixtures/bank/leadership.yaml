@@ -1,0 +1,6 @@
+- id: acm-chapter
+  org: ACM Student Chapter
+  role: Workshop Lead
+  bullets:
+    - id: acm-chapter-workshops
+      text: Ran six hands-on Git and Linux workshops for first-year students.

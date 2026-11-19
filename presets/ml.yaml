@@ -1,0 +1,14 @@
+name: ml
+label: ML
+description: Machine learning
+
+education: [kessler-state]
+experience: [halden-freight, meridian-health, lockfield-analytics]
+projects: [transit-forecast, ledger-lens]
+skills:
+  - id: languages
+    skills: [Python, SQL]
+  - id: frameworks
+    skills: [scikit-learn, NumPy]
+  - id: tools
+    skills: [pytest, Git]

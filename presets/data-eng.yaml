@@ -1,0 +1,14 @@
+name: data-eng
+label: DE
+description: Data engineering
+
+education: [kessler-state]
+experience: [halden-freight, meridian-health, lockfield-analytics]
+projects: [ledger-lens, transit-forecast]
+skills:
+  - id: languages
+    skills: [SQL, Python]
+  - id: data
+    skills: [PostgreSQL, DuckDB, dbt]
+  - id: tools
+    skills: [Git, Docker]

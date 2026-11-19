@@ -1,0 +1,182 @@
+((= Rendered by resume_builder.render. Jinja delimiters are LaTeX-safe: blocks use double
+    parentheses with stars, values triple parentheses, comments double parentheses with equals.
+    Adapted from Jake's Resume and sb2nov/resume. See LICENSE for copyright notices. =))
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\ifdefined\pdfgentounicode\input{glyphtounicode}\fi
+\usepackage[top=0.9cm,bottom=0.8cm,left=1.1cm,right=1.1cm]{geometry}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.1in}
+\addtolength{\textwidth}{0.2in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\ifdefined\pdfgentounicode\pdfgentounicode=1\fi
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\fontsize{8.7pt}{11.4pt}\selectfont{
+    {#1 \vspace{0pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{0pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1.5pt, parsep=0pt, topsep=3pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Large \scshape ((( profile.name )))} \\[1.5mm]
+    \footnotesize
+    ((( profile.contact )))
+    \vspace{-8pt}
+\end{center}
+((* for school in education *))
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {((( school.school )))}{((( school.dates )))}
+      {((( school.degree )))}{((( school.location )))}
+  \resumeSubHeadingListEnd
+  \vspace{-4pt}
+((* if school.bullets *))
+    \resumeItemListStart
+((* for bullet in school.bullets *))
+        \resumeItem{((( bullet )))}
+((* endfor *))
+    \resumeItemListEnd
+((* endif *))
+    \vspace{-8pt}
+((* endfor *))
+((* if experience *))
+
+%-----------EXPERIENCE-----------
+\section{Work Experience}
+    \resumeSubHeadingListStart
+((* for job in experience *))
+
+        \resumeSubheading{((( job.title )))}{((( job.dates )))}{((( job.org )))}{((( job.location )))}
+((* if job.bullets *))
+        \resumeItemListStart
+((* for bullet in job.bullets *))
+            \resumeItem{((( bullet )))}
+((* endfor *))
+        \resumeItemListEnd
+((* endif *))
+((* endfor *))
+
+    \resumeSubHeadingListEnd
+    \vspace{-12pt}
+((* endif *))
+((* if projects *))
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+((* for project in projects *))
+
+        \resumeProjectHeading
+    {((( project.heading )))}{((( project.stack )))}
+((* if project.bullets *))
+\resumeItemListStart
+((* for bullet in project.bullets *))
+    \resumeItem{((( bullet )))}
+((* endfor *))
+\resumeItemListEnd
+((* endif *))
+((* if not loop.last *))
+        \vspace{-13pt}
+((* endif *))
+((* endfor *))
+
+    \resumeSubHeadingListEnd
+    \vspace{-12pt}
+((* endif *))
+((* if skills *))
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+((* for group in skills *))
+((* if loop.first *))     ((* endif *))\textbf{((( group.label ))):}{ ((( group.skills )))}((* if not loop.last *)) \\[1mm]((* endif *))
+
+((* endfor *))
+    }}
+ \end{itemize}
+((* endif *))
+
+\end{document}

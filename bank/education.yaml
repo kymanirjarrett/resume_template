@@ -1,0 +1,13 @@
+- id: kessler-state
+  school: Kessler State University
+  degree: Bachelor of Science
+  degree_short: B.S.
+  majors:
+    - name: Computer Science
+      track: Software Systems
+    - name: Mathematics
+  location: Columbus, OH
+  dates: {start: "2022-08", end: "2026-05"}
+  bullets:
+    - id: kessler-state-ta
+      text: "**Teaching Assistant** for Data Structures: held weekly office hours and graded projects for 140 students."

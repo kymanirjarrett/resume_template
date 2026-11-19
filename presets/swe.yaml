@@ -1,0 +1,14 @@
+name: swe
+label: SWE
+description: Software engineering
+
+education: [kessler-state]
+experience: [halden-freight, meridian-health, lockfield-analytics]
+projects: [resume-as-code, ledger-lens]
+skills:
+  - id: languages
+    skills: [Python, TypeScript, Java, Go]
+  - id: frameworks
+    skills: [React, FastAPI]
+  - id: tools
+    skills: [Git, Docker, GitHub Actions]

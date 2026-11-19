@@ -1,0 +1,35 @@
+- id: resume-as-code
+  name: Resume as Code
+  links:
+    source: https://github.com/kymanirjarrett/resume_template
+  stack: [Python, Jinja, LaTeX, GitHub Actions]
+  bullets:
+    - id: resume-as-code-cli
+      text: Built a CLI that renders tailored one-page resumes from one YAML bank, with schema validation and a CI page-count check.
+- id: ledger-lens
+  name: Ledger Lens
+  stack: [Python, SQL]
+  bullets:
+    - id: ledger-lens-imports
+      text: Normalized and deduplicated bank CSV exports from three institutions before loading them into PostgreSQL for monthly reports.
+- id: transit-forecast
+  name: Transit Ridership Forecast
+  stack: [Python, scikit-learn]
+  bullets:
+    - id: transit-forecast-baseline
+      text: Beat a seasonal baseline by **18%** MAPE forecasting weekly bus ridership from three years of public city transit data.
+- id: queue-simulator
+  name: Dining Hall Queue Simulator
+  stack: [Python, NumPy]
+  bullets:
+    - id: queue-simulator-wait
+      text: Ran Monte Carlo simulations of lunch-rush wait times across staffing levels and arrival rates.
+- id: policy-linter
+  name: IAM Policy Linter
+  stack: [Go, Open Policy Agent]
+  bullets:
+    - id: policy-linter-rules
+      text: Flagged wildcard actions and public resources in Terraform IAM policies as a pre-merge GitHub Action.
+    - id: policy-linter-draft
+      text: Earlier wording kept for reference after the rules were rewritten in Rego.
+      status: archived
